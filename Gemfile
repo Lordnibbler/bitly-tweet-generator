@@ -3,6 +3,7 @@ ruby '2.1.2'
 
 gem 'sinatra'                   # our server
 gem 'sinatra-contrib'           # for sinatra/json and other libs
+gem 'bitly'
 
 group :development do
   gem 'byebug'                  # pry > irb
