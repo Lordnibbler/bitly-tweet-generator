@@ -18,6 +18,13 @@ class App < Sinatra::Base
     # http://foo.com#S
     # http://foo.com#S+1
     # http://foo.com#..n
+    url         = params['url']
+    multiplier  = params['multiplier'].to_i
+    start_value = params['start_value'].to_i
+
+    range = Range.new(start_value, start_value + multiplier, true)
+    array = Array.new
+    range.each { |i| array << "#{url}##{i}" }
 
     # for each generated URL use bitly to shorten
 
