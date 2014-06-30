@@ -6,6 +6,7 @@ gem 'sinatra-contrib'  # for sinatra/json and other libs
 gem 'activesupport', '~> 4.1.1' # for our sanity
 gem 'bitly'            # bitly API wrapper gem
 gem 'slim'             # lightweight templating language
+gem 'settingslogic'    # load settings from a YAML file
 
 group :development do
   gem 'pry'
