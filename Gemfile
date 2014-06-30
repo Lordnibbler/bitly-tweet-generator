@@ -3,7 +3,9 @@ ruby '2.1.2'
 
 gem 'sinatra'          # our server
 gem 'sinatra-contrib'  # for sinatra/json and other libs
+gem 'activesupport', '~> 4.1.1' # for our sanity
 gem 'bitly'            # bitly API wrapper gem
+gem 'slim'             # lightweight templating language
 
 group :development do
   gem 'byebug'         # pry > irb
