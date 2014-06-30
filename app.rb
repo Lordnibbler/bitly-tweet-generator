@@ -4,16 +4,17 @@ require './bootstrap'
 require './settings'
 
 class App < Sinatra::Base
+
+  use Rack::Auth::Basic, "Restricted Area" do |username, password|
+    username == (ENV['username'] || Settings.username) and
+    password == (ENV['password'] || Settings.password)
+  end
+
   get '/' do
     slim :index
   end
 
   post '/' do
-    # link = http://foo.com
-    # tweet template = "some shit {link here}"
-    # multiplier = 3
-    # start value = 0
-
     # take the link, and generate N number of variations, where N = multiplier,
     # taking into account the start value, S
     url            = params['url']
@@ -58,8 +59,8 @@ class BitlyClient
   def initialize
     Bitly.configure do |config|
       config.api_version = 3
-      config.login   = ENV['username'] || Settings.username
-      config.api_key = ENV['api_key']  || Settings.api_key
+      config.login   = ENV['bitly_username'] || Settings.username
+      config.api_key = ENV['bitly_api_key']  || Settings.api_key
     end
     @client = Bitly.client
   end
