@@ -8,6 +8,7 @@ gem 'bitly'            # bitly API wrapper gem
 gem 'slim'             # lightweight templating language
 
 group :development do
+  gem 'pry'
   gem 'byebug'         # pry > irb
   gem 'shotgun'        # reloads server when files change
 end

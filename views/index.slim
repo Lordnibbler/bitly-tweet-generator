@@ -1,17 +1,17 @@
 .row
   .col-sm-12
       h2 Generate some tweets
-      form role='form' action='/'
+      form role='form' action='/' method='POST'
         .form-group
           label for='link' Link
-          input type='text' class='form-control' id='link' placeholder='http://the-link-to-share.com'
+          input#link.form-control type='text' name='link' placeholder='http://the-link-to-share.com'
         .form-group
           label for='tweet-template' Tweet Template
-          textarea class='form-control' id='tweet-template' placeholder='My tweet goes here, and my {link goes here}'
+          textarea#tweet-template.form-control name='tweet-template' placeholder='My tweet goes here, and my {link goes here}'
         .form-group
           label for='number-of-links' Number of links to generate
-          input type='number' class='form-control' id='number-of-links' placeholder='10'
+          input#number-of-links.form-control type='number' name='number-of-links' placeholder='10'
         .form-group
           label for='start-value' Start Value of Links
-          input type='number' class='form-control' id='start-value' placeholder='3'
+          input#start-value.form-control type='number' name='start-value' placeholder='3'
         button type='submit' class='btn btn-default' Submit
