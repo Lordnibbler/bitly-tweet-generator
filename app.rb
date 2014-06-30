@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'pry'
 require 'bitly'
 require './bootstrap'
 require './settings'
