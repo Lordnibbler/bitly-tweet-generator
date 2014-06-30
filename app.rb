@@ -39,9 +39,16 @@ class App < Sinatra::Base
     end
 
     # build a CSV and send_file it to the user
-    # results must be a CSV of
-    # --- tweet with shortned link ---  ||  --- original link ---
-    # this is a tweet bit.ly/foo                  foo.com#1
+    csv_string = CSV.generate do |csv|
+      results_hash.each_key do |k|
+        csv << [results_hash[k][:tweet], results_hash[k][:long_url]]
+      end
+    end
+    csv_string = "tweet,link\n" + csv_string
+
+    content_type 'application/csv'
+    attachment   'tweets.csv'
+    csv_string
   end
 end
 
